@@ -1,0 +1,69 @@
+<div th:fragment="laptopaz">
+    <div class="container">
+        <form th:action="@{/laptopaz1}" th:method="GET">
+            <div class="top-pro-list">
+                <div class="filter_bar-item">
+                    <span>Thương hiệu :</i></span>
+                    <select class="list-unstyled" name="brand">
+                        <option th:value="${brand}" style="display:none;" th:text =${brandSet}></option>
+                        <option value="">Tất cả</option>
+                        <option value="apple">Apple</option>
+                        <option value="acer">Acer</option>
+                        <option value="dell">DELL</option>
+                        <option value="hp">HP</option>
+                        <option value="lenovo">Lenovo</option>
+                        <option value="msi">MSI</option>
+                        <option value="asus">ASUS</option>
+                    </select>
+                </div>
+
+                <div class="filter_bar-item">
+                    <span>Giá :</i></span>
+                    <select class="list-unstyled" name="price_range">
+                        <option th:value="${price}" style="display:none;" th:text =${priceSet}></option>
+                        <option value="">Tất cả</option>
+                        <option value="5-10">5 triệu - 10 triệu</option>
+                        <option value="10-20">10 triệu - 20 triệu</option>
+                        <option value="20-30">20 triệu - 30 triệu</option>
+                        <option value="30-40">30 triệu - 40 triệu</option>
+                        <option value="40-50">40 triệu - 50 triệu</option>
+                        <option value="over-50">Trên 50 triệu</option>
+                    </select>
+                </div>
+                <div class="filter_bar-item"><span>Ram <i class="fas fa-sort-down"></i></span></div>
+                <div class="filter_bar-item"><span>Ổ Cứng <i class="fas fa-sort-down"></i></span></div>
+                <div class="filter_bar-item"><span>Màn <i class="fas fa-sort-down"></i></span></div>
+                <div class="filter_bar-item">
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="nhập sản phẩm cần tìm kiếm"
+                        style="height: 25px; padding-left: 35px; width: 300px; text-align: center; vertical-align: middle;"
+                    />
+                </div>
+                <button type="submit" style="padding-left: 10%;">
+                    
+                    <i class="fas fa-search" style="color: #2616a2; font-size: 30px;"></i>
+                </button>
+            </div>
+
+        </form>
+        <div class="product-list">
+            <div class="product1" th:each="product : ${list}">
+                <a th:href="@{/product?id={id}(id=${product.id})}">
+                <div class="product_item text-center">
+                    <img th:src="@{img/{id}.png (id = ${product.id})}" width="100" height="100">
+                    <div>
+                        <p class="name" th:text="${product.ten_san_pham}"></p>
+                        <b class="price"><a style="color: red;"> Giá gốc:</a> <p th:text="${product.don_gia}"></p></b><br>
+                        <span class="view"><i class="fa fa-eye"></i> 100000 : <i class="fas fa-heart-circle"></i> 10</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

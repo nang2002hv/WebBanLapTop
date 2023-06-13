@@ -1,0 +1,118 @@
+<div th:fragment="register">
+	<div class="container">
+		<div id="wrapper">
+			<form th:object="${customer}" th:action="@{/ktregister}" id="form-login" method="POST">
+				<h1 class="form-heading">ĐĂNG KÝ</h1>
+				<div class="form-group">
+					<i class="far fa-user"></i>
+					<input type="text" name="phone" class="form-input"  placeholder="Số Điện Thoại">
+					<span id="phoneError" class="error"></span>
+				</div>
+				<div class="form-group">
+					<i class="fas fa-key"></i>
+					<input type="password" name="password" class="form-input" placeholder="Mật khẩu">
+					<br>
+					<span id="passwordError" class="error"></span>
+				</div>
+				<div class="form-group">
+					<i class="far fa-user"></i> <input type="text" class="form-input" name="name"
+						placeholder="Họ tên" >
+					<br>
+					<span id="nameError" class="error"></span>
+				</div>
+				<div class="form-group">
+					<i class="fas fa-envelope"></i>
+					<input type="text" name="email" class="form-input" placeholder="@gmail.com">
+					<br>
+					<span id="emailError" class="error"></span>
+				</div>
+				<div class="form-group">
+					<i class="fas fa-map-marker-alt"></i>
+					<input name="address" type="text" class="form-input" placeholder="Địa chỉ">
+					<br>
+					<span id="addressError" class="error"></span>
+				</div>
+				<a class="form-input" th:href="@{/severlogin}">Đăng nhập</a>
+				<input type="submit" value="Tạo tài khoản" class="form-submit">
+			</form>
+		</div>
+	</div>
+	<script>
+		document.getElementById("form-login").addEventListener("submit", function (event) {
+			// Ngăn chặn gửi form mặc định
+			event.preventDefault();
+
+			// Lấy giá trị từ các trường nhập liệu
+			var phone = document.getElementsByName("phone")[0].value;
+			var password = document.getElementsByName("password")[0].value;
+			var email = document.getElementsByName("email")[0].value;
+			var name = document.getElementsByName("name")[0].value;
+			var address = document.getElementsByName("address")[0].value;
+
+			// Xóa thông báo lỗi cũ
+			clearErrors();
+
+			// Kiểm tra điều kiện và hiển thị thông báo lỗi tương ứng
+			var hasError = false;
+
+			if (phone === "") {
+				showError("phoneError", "Số điện thoại không được bỏ trống");
+				hasError = true;
+			} else if (!phone.match(/^0[0-9]{9}$/)) {
+				showError("phoneError", "Số điện thoại phải bắt đầu từ 0 và có 10 số");
+				hasError = true;
+			}
+
+			if (password === "") {
+				showError("passwordError", "Mật khẩu không được bỏ trống");
+				hasError = true;
+			}
+
+			if (name === "") {
+				showError("nameError", "Tên không được bỏ trống");
+				hasError = true;
+			}
+
+			if (email === "") {
+				showError("emailError", "Email không được bỏ trống");
+				hasError = true;
+			} else if (!email.endsWith("@gmail.com")) {
+				showError("emailError", "Email phải có định dạng @gmail.com");
+				hasError = true;
+			}
+
+			if ( address === "") {
+				showError("addressError", "Địa chỉ không được bỏ trống");
+				hasError = true;
+			}
+
+			if (hasError) {
+				document.getElementsByName("phone")[0].value = "";
+				document.getElementsByName("password")[0].value ="";
+    			document.getElementsByName("email")[0].value = "";
+				return;
+			}
+
+			event.target.submit();
+
+		});
+
+		function showError(id, message) {
+			document.getElementById(id).innerHTML = message;
+		}
+
+		function clearErrors() {
+			var errorElements = document.getElementsByClassName("error");
+			for (var i = 0; i < errorElements.length; i++) {
+				errorElements[i].innerHTML = "";
+			}
+		}
+
+		function showError(id, message) {
+			var errorElement = document.getElementById(id);
+			errorElement.innerHTML = message;
+			errorElement.classList.add("error"); 
+		}
+
+	</script>
+</div>

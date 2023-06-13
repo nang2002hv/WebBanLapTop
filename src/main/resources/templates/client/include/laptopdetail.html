@@ -1,0 +1,246 @@
+<div th:fragment="laptopdetail">
+	<div style="background-color: #d3d7db;">
+		<div class="container" style="background-color: white;">
+			<form th:object="${product}" action="">
+				<div class="title_product">
+					<h1 th:text="${product.ten_san_pham}"></h1>
+					<div class="st-rating">
+						<ul class="st-rating__star">
+							<li><i class="fas fa-star" style="color: #c9c313;"></i></li>
+							<li><i class="fas fa-star" style="color: #c9c313;"></i></li>
+							<li><i class="fas fa-star" style="color: #c9c313;"></i></li>
+							<li><i class="fas fa-star" style="color: #c9c313;"></i></li>
+							<li><i class="fas fa-star" style="color: #c9c313;"></i></li>
+							<a style="color: blue;">78 đánh giá</a>
+						</ul>
+	
+					</div>
+				</div>
+				<div class="product_sp">
+					<div class="img_product">
+						<img th:src="@{img/{id}.png (id = ${product.id})}" height="450px" width="450px">
+						<i class="fal fa-chevron-circle-right"
+							style="color: #52467c; font-size: 40px; position: absolute; top: 50%; right: 0%;"></i>
+						<div class="dot_bottom">
+							<i class="fas fa-circle" style="color: #d81313; font-size: 8px;"></i>
+							<i class="fas fa-circle" style="color: #F5F6F8; font-size: 8px;"></i>
+							<i class="fas fa-circle" style="color: #F5F6F8; font-size: 8px;"></i>
+							<i class="fas fa-circle" style="color: #F5F6F8; font-size: 8px;"></i>
+							<i class="fas fa-circle" style="color: #F5F6F8; font-size: 8px;"></i>
+							<i class="fas fa-circle" style="color: #F5F6F8; font-size: 8px;"></i>
+						</div>
+					</div>
+					<div class="product-right">
+						<div class="container-price">
+							<b class="price_product" th:text="${product.don_gia}"></b>
+						</div>
+						<div class="st-param1">
+							<div class="title title--more"><span>Nhận ngay khuyến mại đặc biệt</span></div>
+							<ul class="st-boxPromo__list st-boxPromo__list--more">
+								<li class="st-param-ul"><i class="fas fa-check-circle" style="color: #33af23;"></i>
+									<div><span>Tặng PMH 300.000đ mua màn hình LCD </span></div>
+								</li>
+								<li class="st-param-ul"><i class="fas fa-check-circle" style="color: #33af23;"></i>
+									<div><span>Thu cũ đổi mới trợ giá ngay 15% đến 3 triệu (SmartExchange)</span></div>
+								</li>
+								<li class="st-param-ul"><i class="fas fa-check-circle" style="color: #33af23;"></i>
+									<div><span>Tặng PMH 300.000đ mua máy in </span></div>
+								</li>
+								<li><a>Xem thêm 3 ưu đãi khác</li>
+							</ul>
+						</div>
+						<div class="st-boxFeature">
+							<ul>
+								<li><label class="img"><img
+											src="https://images.fpt.shop/unsafe/fit-in/48x48/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/3/14/637828748513420662_Kredio.jpg"
+											width="48" height="48"
+											alt="Giảm ngay 5% tối đa 500.000 đồng khi thanh toán trả góp 6/12 tháng qua Kredivo">
+									</label>
+									<div class="text">
+										<p>Thanh toán Kredivo</p>
+										<div><span>Giảm ngay 5% tối đa 500.000 đồng khi thanh toán trả góp 6/12 tháng qua
+												Kredivo </span><a>Xem chi tiết</a></div>
+									</div>
+								</li>
+								<li><label class="img"><img
+											src="https://images.fpt.shop/unsafe/fit-in/48x48/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/4/4/637846629514363952_ic-tp-bank.jpg"
+											width="48" height="48"
+											alt="Giảm ngay 600.000đ và hoàn tiền đến 500.000đ khi mở thẻ đồng thương hiệu TPBANK EVO (áp dụng cùng VNPAY/MOCA)">
+									</label>
+									<div class="text">
+										<p>EVO</p>
+										<div><span>Giảm ngay 600.000đ và hoàn tiền đến 500.000đ khi mở thẻ đồng thương hiệu
+												TPBANK EVO (áp dụng cùng VNPAY/MOCA) </span><a>
+												Xem chi tiết</a></div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+							<div class="pay_now" style="cursor: pointer;">
+								<div>
+									<a  th:href="@{/shopping_cart?id={id}(id=${product.id})}"><p  style="font-size: 20px; color: white;">Mua Ngay</p></a>
+								</div>
+								<div>
+									<p style="font-size: 14px; color: white;">Giao Hang Mien Phi</p>
+								</div>
+							</div>
+							<div class="pay_now1" style="cursor: pointer;">
+								<div>
+									<p style="font-size: 20px; color: white;">Trả Góp 0%</p>
+								</div>
+								<div>
+									<p style="font-size: 14px; color: white;">Duyệt Nhanh Qua Điện Thoại</p>
+								</div>
+							</div>
+							<div class="pay_now1" style="cursor: pointer;">
+								<div>
+									<p style="font-size: 20px; color: white;">Trả Góp Qua Thẻ</p>
+								</div>
+								<div>
+									<p style="font-size: 14px; color: white;">Visa, Master Card, JCB, AMEX</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="st-param">
+						<ul>
+							<li class="st-param-ul"><i class="far fa-desktop"></i></span>
+								<p th:text="${product.ten_san_pham}"></p>
+							</li>
+							<li class="st-param-ul"><i class="fas fa-microchip"></i>
+								<p th:text="${product.cpu}"></p>
+							</li>
+							<li class="st-param-ul"><i class="fas fa-memory"></i>
+								<p th:text="${product.ram}"></p>
+							</li>
+							<li class="st-param-ul"><i class="fas fa-window"></i>
+								<p th:text="${product.he_dieu_hanh}"></p>
+							</li>
+						</ul><a style="color : #0168fa">Xem chi tiết thông số kỹ thuật</a>
+					</div>
+	
+				</div>
+				<div class="information_product">
+					<div class="product-content">
+	
+						<h2 class="st-pd-contentTitle">Đánh giá chi tiết [[${product.ten_san_pham}]]</h2>
+						</h2>
+						<div class="st-pd-content">
+							<p style="text-align:justify; margin-bottom:11px"><b> [[${product.ten_san_pham}]] là chiếc
+									thiết kế tuyệt đẹp, phong cách chuẩn game thủ và cấu hình mạnh mẽ cho cả
+									học tập, công việc cũng như chơi game. Bên cạnh đó là độ bền chuẩn quân đội đã làm nên
+									tên tuổi của dòng TUF.</b></p>
+	
+							<h3 style="text-align: justify; margin-bottom: 11px;"><b>Vi xử lý mạnh mẽ cho cả chơi game và
+									làm việc</b></h3>
+	
+							<p style="text-align:justify; margin-bottom:11px"> thymeleaf: [[${product.ten_san_pham}]] mang
+								trên
+								mình sức mạnh của bộ vi xử lý Intel thế hệ thứ 10. Con chip Intel Core i5 10300H với 4 lõi 8
+								luồng và tốc độ tối đa lên tới 4.50GHz cho hiệu năng đáng tin cậy, dù là bạn chơi game, phát
+								trực tiếp hay làm việc. Đi kèm với đó là 512GB SSD NVMe PCIe, 8GB RAM DDR4 và khả năng nâng
+								cấp dễ dàng, để bạn có được hiệu năng đúng như ý muốn.</p>
+	
+							<h3 style="text-align: justify; margin-bottom: 11px;"><b>Thể hiện khí chất game thủ cực ngầu</b>
+							</h3>
+	
+							<p style="text-align:justify; margin-bottom:11px">Khí chất game thủ được toát lên ngay khi bạn
+								nhìn vào Asus TUF Gaming F15 FX506LHB-HN188W. Phiên bản màu Đen Graphite Black cực ngầu với
+								màu sắc chủ đạo là đen tuyền cổ điển nhưng không hề nhàm chán nhờ họa tiết phay xước cùng
+								những hình khối phá cách. Chất lượng hoàn thiện cao và cách bố trí họa tiết thông minh giúp
+								Asus&nbsp;TUF F15 Gaming có vẻ đẹp riêng biệt khi đặt cạnh các đối thủ. Đồng thời máy cũng
+								rất di động với kích thước tổng thể gọn gàng và trọng lượng chỉ 2,3kg.</p>
+	
+							<h3 style="text-align: justify; margin-bottom: 11px;"><b>Âm thanh sống động, chân thực</b></h3>
+	
+							<p style="text-align:justify; margin-bottom:11px">Với việc sở hữu hai loa nâng cấp và 4 âm thanh
+								đầu ra, Asus TUF Gaming F15 FX506LHB-HN188W cho âm lượng lớn gấp 1,8 lần và âm bass trầm hơn
+								2,7 lần so với thế hệ trước. Bạn sẽ được trải nghiệm âm thanh vòm ảo 7.1 nhờ công nghệ
+								DTS:X, mang đến chất lượng âm thanh chuẩn phòng thu khi sử dụng tai nghe Stereo. Trong những
+								trận chiến game hiện đại, âm thanh cũng đóng vai trò quan trọng, vì thế âm thanh chất lượng
+								của Asus&nbsp;TUF F15 cũng là một vũ khí dành cho riêng bạn. Trên laptop còn có 8 chế độ âm
+								thanh khác nhau để bạn có được trải nghiệm nghe đúng như ý thích với mỗi hoạt động nghe
+								nhạc, xem phim hay chơi game.</p>
+	
+	
+							<h3 style="text-align: justify; margin-bottom: 11px;"><b>Cơ chế tản nhiệt thông minh</b></h3>
+	
+							<p style="text-align:justify; margin-bottom:11px">Hệ thống tản nhiệt cao cấp bao gồm nhiều ống
+								tản nhiệt và 3 ống dẫn nhiệt giúp Asus&nbsp;TUF F15 có khả năng <a
+									href="https://fptshop.com.vn/linh-kien/tan-nhiet">tản nhiệt</a> nhanh chóng. Thiết kế
+								làm mát tự làm sạch thông minh đảm bảo hệ thống tản nhiệt hoạt động hiệu quả và lâu dài. Nhờ
+								vậy bạn luôn có được hiệu năng ổn định trên Asus TUF Gaming F15 FX506LHB&nbsp;để tự tin giải
+								trí với những trận chiến Game hấp dẫn.</p>
+	
+	
+							<h3 style="text-align: justify; margin-bottom: 11px;"><b>Chứng nhận độ bền chuẩn quân đội</b>
+							</h3>
+	
+							<p style="text-align:justify; margin-bottom:11px">Những chiếc laptop <a
+									href="https://fptshop.com.vn/may-tinh-xach-tay/asus-tuf-gaming">TUF Gaming</a> luôn nổi
+								tiếng với độ bền xuất sắc. Asus TUF Gaming F15 FX506LHB&nbsp;đã vượt qua bài thử nghiệm độ
+								bền chuẩn quân đội MIL-STD-810H. Các thử nghiệm như thả rơi, chống rung, nhiệt độ cao, nhiệt
+								độ thấp hay độ ẩm đều đã được vượt qua trên chiếc TUF Gaming F15, để khi đến tay người tiêu
+								dùng, đó sẽ là một chiếc laptop gaming vô cùng bền vững.</p>
+	
+	
+							<h3 style="text-align: justify; margin-bottom: 11px;"><b>Thao tác chuẩn xác trên bàn phím
+									gaming</b></h3>
+	
+							<p style="text-align:justify; margin-bottom:11px"> [[${product.ten_san_pham}]] trang bị bàn
+								phím tương tự tốt nhất cho hoạt động chơi game. Tất nhiên bạn sẽ có đèn nền RGB đồng bộ và
+								nhiều chế độ khác nhau
+								để tha hồ thể hiện kỹ năng một cách “cool ngầu” hơn. Công nghệ Overstroke kích hoạt vị trí
+								nhận lệnh cao hơn trên phím bấm, mang tới tốc độ phản hồi nhanh hơn. Tất nhiên không thể
+								không nhắc đến độ bền của một sản phẩm TUF khi bàn phím ASUS TUF Gaming F15 có tuổi thọ tới
+								20 triệu lần nhấn.</p>
+	
+						</div>
+	
+					</div>
+					<div class="product-table">
+						<h2 class="card-title">Thông số kỹ thuật</h2>
+						<table class="st-pd-table">
+							<tbody>
+								<tr>
+									<td>Màn hình</td>
+									<td> [[${product.man_hinh}]]</td>
+								</tr>
+								<tr>
+									<td>CPU</td>
+									<td> [[${product.cpu}]]</td>
+								</tr>
+								<tr>
+									<td>RAM</td>
+									<td> [[${product.ram}]]</td>
+								</tr>
+								<tr>
+									<td>Ổ cứng</td>
+									<td>SSD 512 GB</td>
+								</tr>
+								<tr>
+									<td>Đồ họa</td>
+									<td>NVIDIA GeForce GTX 1650 4GB; Intel UHD Graphics</td>
+								</tr>
+								<tr>
+									<td>Hệ điều hành</td>
+									<td> [[${product.he_dieu_hanh}]]</td>
+								</tr>
+								<tr>
+									<td>Trọng lượng</td>
+									<td>2.3 kg</td>
+								</tr>
+								<tr>
+									<td>Dung lượng pin</td>
+									<td> [[${product.dung_luong_pin}]]</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</div>

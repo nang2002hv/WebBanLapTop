@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css"
+	th:href="@{css/font-awesome.min.css}">
+<link rel="stylesheet" type="text/css"
+	th:href="@{css/bootstrap.min.css}">
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>trang chu</title>
+<script th:src="@{js/bootstrap.min.js}"></script>
+<script th:src="@{js/trangchu.js}"></script>
+<script th:src="@{js/jquery-3.2.1.min.js}"></script>
+<link rel="stylesheet" th:href="@{css/trangchu1.css}">
+</head>
+
+<body>
+	<div th:insert="client/include/header :: header"></div>
+	<div th:switch="${isLogin}">
+		<div th:case="0">
+			<div th:replace="client/register :: register"></div>
+		</div>
+		<div th:case="1">
+			<div th:replace="client/login :: login"></div>
+		</div>
+		<div th:case="2">
+			<div th:replace="client/include/laptopaz :: laptopaz"></div>
+		</div>
+		<div th:case="3">
+			<div th:replace="client/include/laptopdetail:: laptopdetail"></div>
+		</div>
+		<div th:case="4">
+			<div th:replace="client/include/mycart:: mycart"></div>
+		</div>
+		<div th:case="5">
+			<div th:replace="client/include/thongtin:: thongtin"></div>
+		</div>
+		<div th:case="*">
+			<div th:replace="client/include/maincontent :: maincontent"></div>
+		</div>
+	</div>
+	<div th:insert="client/include/footer :: footer"></div>
+</body>

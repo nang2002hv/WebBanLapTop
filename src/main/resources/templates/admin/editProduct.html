@@ -1,0 +1,65 @@
+<div th:fragment="editProduct">
+	<div class="container1">
+		<form th:action="@{/productsp}" method="post" th:object="${product}">
+			<div class="row">
+				<h1>Product [[${product.ten_san_pham}]]</h1>
+			</div>
+			<table class="table table-striped table-bordered">
+				<thead class="table-dark font_tr_th">
+					<tr>
+						<th>id</th>
+						<th>cpu</th>
+						<th>đơn giá</th>
+						<th>đơn vị bán</th>
+						<th>đơn vị kho</th>
+						<th>dung lượng pin</th>
+						<th>hệ điều hành</th>
+						<th>màn hình</th>
+						<th>ram</th>
+						<th>tên sản phẩm</th>
+						<th>thiết kế</th>
+						<th>thông tin bảo hành</th>
+						<th>thông tin chung</th>
+						<th>mã danh mục</th>
+						<th>mã hãng sản xuất</th>
+					</tr>
+				</thead>
+				<tbody class="font_tr_th">
+					<tr>
+						<td><input type="number" name="id" th:value="${product.id}" class="oneproduct_a"/></td>
+						<td><input type="text" name="cpu" th:value="${product.cpu}" class="oneproduct_a" /></td>
+						<td><input type="text" name="don_gia" th:value="${product.don_gia}" class="oneproduct_a" />
+						</td>
+						<td><input type="number" name="don_vi_ban" th:value="${product.don_vi_ban}"
+								class="oneproduct_a" /></td>
+						<td><input type="number" name="don_vi_kho" th:value="${product.don_vi_kho}"
+								class="oneproduct_a" /></td>
+						<td><input type="text" name="dung_luong_pin" th:value="${product.dung_luong_pin}"
+								class="oneproduct_a" /></td>
+						<td><input type="text" name="he_dieu_hanh" th:value="${product.he_dieu_hanh}"
+								class="oneproduct_a" /></td>
+						<td><input type="text" name="man_hinh" th:value="${product.man_hinh}" class="oneproduct_a" />
+						</td>
+						<td><input type="text" name="ram" th:value="${product.ram}" class="oneproduct_a" /></td>
+						<td><input type="text" name="ten_san_pham" th:value="${product.ten_san_pham}"
+								class="oneproduct_a" /></td>
+						<td><input type="text" name="thiet_ke" th:value="${product.thiet_ke}" class="oneproduct_a" />
+						</td>
+						<td><input type="text" name="bao_hanh" th:value="${product.bao_hanh}" class="oneproduct_a" />
+						</td>
+						<td><input type="text" name="thong_tin_chung" th:value="${product.thong_tin_chung}"
+								class="oneproduct_a" /></td>
+						<td><input type="number" name="ma_danh_muc" th:value="${product.ma_danh_muc}"
+								class="oneproduct_a" /></td>
+						<td><input type="number" name="ma_hang_sx" th:value="${product.ma_hang_sx}"
+								class="oneproduct_a" /></td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- <div>
+				<input type="file" name="file" style="font-size: 14px;" >
+			</div> -->
+			<input type="submit" value="lưu" style="font-size: 14px;">
+		</form>
+	</div>
+</div>

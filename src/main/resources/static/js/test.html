@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Định nghĩa màu chữ mặc định */
+    #myElement {
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <a id="myElement">Đây là một ví dụ</a>
+
+  <script>
+    // Lấy phần tử HTML cần thay đổi màu chữ
+    var myElement = document.getElementById("myElement");
+
+    // Gán sự kiện mouseenter để thay đổi màu chữ khi di chuột vào
+    myElement.addEventListener("mouseenter", function() {
+      myElement.style.color = "red"; // Đổi màu chữ thành đỏ
+    });
+
+    // Gán sự kiện mouseleave để thay đổi màu chữ khi di chuột ra
+    myElement.addEventListener("mouseleave", function() {
+      myElement.style.color = "black"; // Đổi màu chữ thành mặc định (đen)
+    });
+  </script>
+</body>
+</html>
